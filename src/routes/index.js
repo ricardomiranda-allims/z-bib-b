@@ -7,6 +7,7 @@ exports.getRoutes = (parentPath = '/api') => {
     ...require('./book').getRoutes(path),
     ...require('./chapter').getRoutes(path),
     ...require('./verse').getRoutes(path),
+    ...require('./search').getRoutes(path),
     ...require('./default').getRoutes(path)
   ]
   return routes
