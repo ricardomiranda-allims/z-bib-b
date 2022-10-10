@@ -47,6 +47,11 @@ exports.setResponseToJson = async (req, res, cb) => {
   return res.status(status).type('json').send(content)
 }
 
+exports.setResponseDefault = async (req, res, cb) => {
+  const content = { success: false, error: 'Page not found' }
+  return res.status(404).type('json').send(content)
+}
+
 exports.setResponseError = (res, httpStatus = 500, error = 'Error') => {
   const response = {
     ...defaultResponse,
