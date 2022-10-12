@@ -6,7 +6,7 @@ exports.getRoutes = (parentPath = '') => {
   const routes = [
     {
       method: 'get',
-      path: `${parentPath}/${group}List`,
+      path: `${parentPath}/${group}s`,
       group,
       name: 'List',
       //description: '',

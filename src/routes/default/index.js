@@ -5,6 +5,7 @@ exports.getRoutes = (parentPath = '') => {
     {
       method: 'get',
       path: '*',
+      hidden: true,
       controller: controllerDefault()
     }
   ]
