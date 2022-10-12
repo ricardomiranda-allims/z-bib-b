@@ -60,7 +60,7 @@ const setResponseDefault = async (req, res, cb) => {
   return res.status(404).type('json').send(content)
 }
 
-const setResponseError = (res, httpStatus = 500, error = 'Error') => {
+exports.setResponseError = (res, httpStatus = 500, error = 'Error') => {
   const response = {
     ...defaultResponse,
     success: false,

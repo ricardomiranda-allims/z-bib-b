@@ -1,0 +1,10 @@
+PGHOST=localhost
+PGPORT=5432
+PGDATABASE=postgres
+PGUSER=postgres
+PGPASSWORD=postgres
+
+API_PORT=7000
+API_SALT=mysalt
+API_SECRET=mysecret
+API_EXPIRES=1 day
