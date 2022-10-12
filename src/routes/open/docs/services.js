@@ -4,7 +4,7 @@ exports.getDocsJson = async (req = {}) => {
   const env = info.getEnv(req)
   const version = info.getVersion()
   const data = {
-    swagger: '2.0',
+    // swagger: '2.0',
     info: {
       title: 'Bible API',
       version,
@@ -19,7 +19,7 @@ const getPaths = () => {
   const { getRoutes } = require('../../../routes')
   const routes = getRoutes()
   let paths = []
-  for (const { method, path, group, name, description, hidden } of routes) {
+  for (const { method, path, group, name, hidden } of routes) {
     !hidden && paths.push({ method, path, group, name })
   }
   return paths

@@ -8,8 +8,7 @@ exports.getRoutes = (parentPath = '') => {
       method: 'get',
       path: `${parentPath}/${group}`,
       group,
-      name: 'List',
-      //description: '',
+      name: `Search occurrences`,
       parameters: [
         {
           in: 'query',

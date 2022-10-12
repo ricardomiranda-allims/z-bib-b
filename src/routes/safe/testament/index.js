@@ -8,8 +8,7 @@ exports.getRoutes = (parentPath = '') => {
       method: 'get',
       path: `${parentPath}/${group}s`,
       group,
-      name: 'List',
-      //description: '',
+      name: `List ${group}s`,
       controller: ctrl.controllerToJson(services.getList)
     }
   ]
