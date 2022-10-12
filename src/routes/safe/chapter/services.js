@@ -1,6 +1,5 @@
-const { getRows } = require('../../utils/db')
-
 exports.getList = async (req = {}) => {
+  const { db } = utils
   const { query = {} } = req
   const { book = '' } = query
   const sql = `
@@ -14,7 +13,7 @@ exports.getList = async (req = {}) => {
     order by
       id
   `
-  const rows = await getRows(sql, [book])
+  const rows = await db.getRows(sql, [book])
   const out = { data: rows }
   return out
 }

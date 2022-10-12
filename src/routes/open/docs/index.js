@@ -1,14 +1,14 @@
-const { controllerToJson } = require('../../utils/controller')
 const services = require('./services')
 
 exports.getRoutes = (parentPath = '') => {
+  const { ctrl } = utils
   const group = 'docs'
   const routes = [
     {
       method: 'get',
       path: `${parentPath}/${group}`,
       hidden: true,
-      controller: controllerToJson(services.getDocsJson)
+      controller: ctrl.controllerToJson(services.getDocsJson)
     }
   ]
   return routes

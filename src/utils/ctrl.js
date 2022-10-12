@@ -1,3 +1,11 @@
+exports.controllerToJson = cb => async (req, res) => {
+  await setResponseToJson(req, res, cb)
+}
+
+exports.controllerDefault = cb => async (req, res) => {
+  await setResponseDefault(req, res, cb)
+}
+
 const defaultResponse = {
   success: true
   //data: null,
@@ -38,7 +46,7 @@ const setResponse = async (req, cb) => {
   }
 }
 
-exports.setResponseToJson = async (req, res, cb) => {
+const setResponseToJson = async (req, res, cb) => {
   const resp = await setResponse(req, cb)
   const { status = 200, data = {} } = resp
   const internalData = data.data
@@ -47,12 +55,12 @@ exports.setResponseToJson = async (req, res, cb) => {
   return res.status(status).type('json').send(content)
 }
 
-exports.setResponseDefault = async (req, res, cb) => {
+const setResponseDefault = async (req, res, cb) => {
   const content = { success: false, error: 'Page not found' }
   return res.status(404).type('json').send(content)
 }
 
-exports.setResponseError = (res, httpStatus = 500, error = 'Error') => {
+const setResponseError = (res, httpStatus = 500, error = 'Error') => {
   const response = {
     ...defaultResponse,
     success: false,

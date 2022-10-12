@@ -2,14 +2,9 @@ exports.getRoutes = (parentPath = '/api') => {
   const basePath = ''
   const path = parentPath + basePath
   const routes = [
-    ...require('./status').getRoutes(path),
-    ...require('./docs').getRoutes(path),
-    ...require('./testament').getRoutes(path),
-    ...require('./book').getRoutes(path),
-    ...require('./chapter').getRoutes(path),
-    ...require('./verse').getRoutes(path),
-    ...require('./search').getRoutes(path),
-    ...require('./default').getRoutes(path)
+    ...require('./open').getRoutes(path),
+    ...require('./safe').getRoutes(path),
+    ...require('./open/default').getRoutes(path)
   ]
   return routes
 }

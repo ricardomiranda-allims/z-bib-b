@@ -1,7 +1,7 @@
-const { controllerToJson } = require('../../utils/controller')
 const services = require('./services')
 
 exports.getRoutes = (parentPath = '') => {
+  const { ctrl } = utils
   const group = 'verse'
   const routes = [
     {
@@ -22,7 +22,7 @@ exports.getRoutes = (parentPath = '') => {
           type: 'integer'
         }
       ],
-      controller: controllerToJson(services.getList)
+      controller: ctrl.controllerToJson(services.getList)
     }
   ]
   return routes

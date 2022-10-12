@@ -1,12 +1,11 @@
-const { controllerDefault } = require('../../utils/controller')
-
 exports.getRoutes = (parentPath = '') => {
+  const { ctrl } = utils
   const routes = [
     {
       method: 'get',
       path: '*',
       hidden: true,
-      controller: controllerDefault()
+      controller: ctrl.controllerDefault()
     }
   ]
   return routes

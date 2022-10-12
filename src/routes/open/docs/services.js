@@ -1,4 +1,4 @@
-const { getRoutes } = require('../../routes')
+const { getRoutes } = require('../../../routes')
 
 exports.getDocsJson = async (req = {}) => {
   const paths = getPaths()
