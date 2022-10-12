@@ -9,6 +9,18 @@ exports.getRoutes = (parentPath = '') => {
       path: `${parentPath}/${group}`,
       group,
       name: 'API authentication',
+      parameters: [
+        {
+          in: 'query',
+          name: 'user',
+          type: 'string'
+        },
+        {
+          in: 'query',
+          name: 'password',
+          type: 'string'
+        }
+      ],
       controller: ctrl.controllerToJson(services.getAuth)
     }
   ]
