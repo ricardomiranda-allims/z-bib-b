@@ -3,7 +3,7 @@ exports.start = async server => {
 
   server.listen(apiPort, () => {
     const port = apiPort === '80' ? '' : `:${apiPort}`
-    console.log(`Server running on: http://localhost${port}/api/status\n`)
+    console.log(`Server running on: http://localhost${port}/api/docs\n`)
   })
 }
 
