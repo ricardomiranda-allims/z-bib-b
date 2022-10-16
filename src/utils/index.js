@@ -1,5 +1,6 @@
 module.exports = {
   auth: require('./auth'),
+  client: require('./client'),
   crypt: require('./crypt'),
   ctrl: require('./ctrl'),
   db: require('./db'),

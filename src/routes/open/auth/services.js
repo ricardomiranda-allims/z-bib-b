@@ -1,6 +1,7 @@
 exports.getAuth = async (req = {}) => {
-  const { auth, crypt } = utils
-  const { ip = '127.0.0.1', query = {}, body = {} } = req
+  const { auth, crypt, client } = utils
+  const { query = {}, body = {} } = req
+  const ip = client.getIp(req)
   const { user: qUser = '', password: qPassword = '' } = query
   const { user: bUser = '', password: bPassword = '' } = body
   const user = qUser || bUser

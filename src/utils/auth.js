@@ -1,8 +1,9 @@
 const jwt = require('jsonwebtoken')
 
 exports.check = async (req, res, next) => {
-  const { crypt, ctrl } = utils
-  const { method = '', originalUrl = '', ip = '127.0.0.1' } = req
+  const { crypt, ctrl, client } = utils
+  const { method = '', originalUrl = '' } = req
+  const ip = client.getIp(req)
   const isSafe = originalUrl.toLowerCase().trim().includes('/safe/')
   if (method.toLowerCase().trim() === 'options') {
     next()
