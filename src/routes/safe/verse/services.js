@@ -9,7 +9,7 @@ exports.getList = async (req = {}) => {
         select
           coalesce(v."text",'') as value
         from
-          db.verse v 
+          db.verse_bible v 
         where
           v.id_bible = 'ara'
           and v.id_book = c.id_book 
@@ -20,7 +20,7 @@ exports.getList = async (req = {}) => {
         select
           coalesce(v."text",'') as value
         from
-          db.verse v 
+          db.verse_bible v 
         where
           v.id_bible = 'nvi'
           and v.id_book = c.id_book 
@@ -31,7 +31,7 @@ exports.getList = async (req = {}) => {
         select
           coalesce(v."text",'') as value
         from
-          db.verse v 
+          db.verse_bible v 
         where
           v.id_bible = 'bhs'
           and v.id_book = c.id_book 
@@ -42,7 +42,7 @@ exports.getList = async (req = {}) => {
         select
           coalesce(v."text",'') as value
         from
-          db.verse v 
+          db.verse_bible v 
         where
           v.id_bible = 'vulgata'
           and v.id_book = c.id_book 
@@ -53,7 +53,7 @@ exports.getList = async (req = {}) => {
         select
           coalesce(v."text",'') as value
         from
-          db.verse v 
+          db.verse_bible v 
         where
           v.id_bible = 'aa'
           and v.id_book = c.id_book 
@@ -64,7 +64,7 @@ exports.getList = async (req = {}) => {
         select
           coalesce(v."text",'') as value
         from
-          db.verse v 
+          db.verse_bible v 
         where
           v.id_bible = 'acf'
           and v.id_book = c.id_book 
@@ -75,7 +75,7 @@ exports.getList = async (req = {}) => {
         select
           coalesce(v."text",'') as value
         from
-          db.verse v 
+          db.verse_bible v 
         where
           v.id_bible = 'receptus'
           and v.id_book = c.id_book 
@@ -86,7 +86,7 @@ exports.getList = async (req = {}) => {
         select
           coalesce(v."text",'') as value
         from
-          db.verse v 
+          db.verse_bible v 
         where
           v.id_bible = 'nvt'
           and v.id_book = c.id_book 
@@ -97,7 +97,7 @@ exports.getList = async (req = {}) => {
         select
           coalesce(v."text",'') as value
         from
-          db.verse v 
+          db.verse_bible v 
         where
           v.id_bible = 'naa'
           and v.id_book = c.id_book 
@@ -108,7 +108,7 @@ exports.getList = async (req = {}) => {
         select
           coalesce(v."text",'') as value
         from
-          db.verse v 
+          db.verse_bible v 
         where
           v.id_bible = 'kjv'
           and v.id_book = c.id_book 

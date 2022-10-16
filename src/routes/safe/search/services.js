@@ -12,7 +12,7 @@ exports.getList = async (req = {}) => {
             ,coalesce(v2."text",'') as value
           from
             db.bible b 
-            left join db.verse v2 
+            left join db.verse_bible v2 
               on v2.id_bible = b.id
               and v2.id_book = v.id_book 
               and v2.chapter = v.chapter 
@@ -26,7 +26,7 @@ exports.getList = async (req = {}) => {
       ,v.chapter 
       ,v."number" as verse
     from
-      db.verse v 
+      db.verse_bible v 
       join db.book k
         on k.id = v.id_book 
     where
