@@ -4,126 +4,124 @@ exports.getList = async (req = {}) => {
   const { book = '', chapter = 1 } = query
   const sql = `
     select
-      tb.idx as id
+      v."number" as id
       ,(
         select
-          coalesce(v."text",'') as value
+          coalesce(bv."text",'') as value
         from
-          db.verse_bible v 
+          db.verse_bible bv
         where
-          v.id_bible = 'ara'
-          and v.id_book = c.id_book 
-          and v.chapter = c.chapter 
-          and v."number" = tb.idx
+          bv.id_bible = 'ara'
+          and bv.id_book = v.id_book 
+          and bv.chapter = v.chapter 
+          and bv."number" = v."number" 
       ) as ara
       ,(
         select
-          coalesce(v."text",'') as value
+          coalesce(bv."text",'') as value
         from
-          db.verse_bible v 
+          db.verse_bible bv
         where
-          v.id_bible = 'nvi'
-          and v.id_book = c.id_book 
-          and v.chapter = c.chapter 
-          and v."number" = tb.idx
-      ) as nvi
-      ,(
-        select
-          coalesce(v."text",'') as value
-        from
-          db.verse_bible v 
-        where
-          v.id_bible = 'bhs'
-          and v.id_book = c.id_book 
-          and v.chapter = c.chapter 
-          and v."number" = tb.idx
-      ) as bhs
-      ,(
-        select
-          coalesce(v."text",'') as value
-        from
-          db.verse_bible v 
-        where
-          v.id_bible = 'vulgata'
-          and v.id_book = c.id_book 
-          and v.chapter = c.chapter 
-          and v."number" = tb.idx
-      ) as vulgata
-      ,(
-        select
-          coalesce(v."text",'') as value
-        from
-          db.verse_bible v 
-        where
-          v.id_bible = 'aa'
-          and v.id_book = c.id_book 
-          and v.chapter = c.chapter 
-          and v."number" = tb.idx
-      ) as aa
-      ,(
-        select
-          coalesce(v."text",'') as value
-        from
-          db.verse_bible v 
-        where
-          v.id_bible = 'acf'
-          and v.id_book = c.id_book 
-          and v.chapter = c.chapter 
-          and v."number" = tb.idx
+          bv.id_bible = 'acf'
+          and bv.id_book = v.id_book 
+          and bv.chapter = v.chapter 
+          and bv."number" = v."number" 
       ) as acf
       ,(
         select
-          coalesce(v."text",'') as value
+          coalesce(bv."text",'') as value
         from
-          db.verse_bible v 
+          db.verse_bible bv
         where
-          v.id_bible = 'receptus'
-          and v.id_book = c.id_book 
-          and v.chapter = c.chapter 
-          and v."number" = tb.idx
-      ) as receptus
+          bv.id_bible = 'aa'
+          and bv.id_book = v.id_book 
+          and bv.chapter = v.chapter 
+          and bv."number" = v."number" 
+      ) as aa
       ,(
         select
-          coalesce(v."text",'') as value
+          coalesce(bv."text",'') as value
         from
-          db.verse_bible v 
+          db.verse_bible bv
         where
-          v.id_bible = 'nvt'
-          and v.id_book = c.id_book 
-          and v.chapter = c.chapter 
-          and v."number" = tb.idx
-      ) as nvt
-      ,(
-        select
-          coalesce(v."text",'') as value
-        from
-          db.verse_bible v 
-        where
-          v.id_bible = 'naa'
-          and v.id_book = c.id_book 
-          and v.chapter = c.chapter 
-          and v."number" = tb.idx
+          bv.id_bible = 'naa'
+          and bv.id_book = v.id_book 
+          and bv.chapter = v.chapter 
+          and bv."number" = v."number" 
       ) as naa
       ,(
         select
-          coalesce(v."text",'') as value
+          coalesce(bv."text",'') as value
         from
-          db.verse_bible v 
+          db.verse_bible bv
         where
-          v.id_bible = 'kjv'
-          and v.id_book = c.id_book 
-          and v.chapter = c.chapter 
-          and v."number" = tb.idx
+          bv.id_bible = 'nvi'
+          and bv.id_book = v.id_book 
+          and bv.chapter = v.chapter 
+          and bv."number" = v."number" 
+      ) as nvi
+      ,(
+        select
+          coalesce(bv."text",'') as value
+        from
+          db.verse_bible bv
+        where
+          bv.id_bible = 'nvt'
+          and bv.id_book = v.id_book 
+          and bv.chapter = v.chapter 
+          and bv."number" = v."number" 
+      ) as nvt
+      ,(
+        select
+          coalesce(bv."text",'') as value
+        from
+          db.verse_bible bv
+        where
+          bv.id_bible = 'kjv'
+          and bv.id_book = v.id_book 
+          and bv.chapter = v.chapter 
+          and bv."number" = v."number" 
       ) as kjv
+      ,(
+        select
+          coalesce(bv."text",'') as value
+        from
+          db.verse_bible bv
+        where
+          bv.id_bible = 'bhs'
+          and bv.id_book = v.id_book 
+          and bv.chapter = v.chapter 
+          and bv."number" = v."number" 
+      ) as bhs
+      ,(
+        select
+          coalesce(bv."text",'') as value
+        from
+          db.verse_bible bv
+        where
+          bv.id_bible = 'receptus'
+          and bv.id_book = v.id_book 
+          and bv.chapter = v.chapter 
+          and bv."number" = v."number" 
+      ) as receptus
+      ,(
+        select
+          coalesce(bv."text",'') as value
+        from
+          db.verse_bible bv
+        where
+          bv.id_bible = 'vulgata'
+          and bv.id_book = v.id_book 
+          and bv.chapter = v.chapter 
+          and bv."number" = v."number" 
+      ) as vulgata
     from
-      db.chapter c 
-      join generate_series(1,999) tb(idx)
-        on tb.idx <= c.verses 
+      db.verse v 
     where
-      c.id_book = $1
-      and c.chapter = $2
+      v.id_book = $1
+      and v.chapter = $2
     order by
-      tb.idx
+      v."number" 
   `
   const rows = await db.getRows(sql, [book, chapter])
   const out = { data: rows }
